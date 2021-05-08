@@ -7,9 +7,9 @@ import django.db.models.deletion
 import uuid
 
 
-def insert_initial_catalogs_data(apps):
-    SectionType = apps.get_model("SectionType")
-    ElementType = apps.get_model("ElementType")
+def insert_initial_catalogs_data(apps, schema_editor):
+    SectionType = apps.get_model("structure", "SectionType")
+    ElementType = apps.get_model("structure", "ElementType")
 
     work_history = SectionType(name="Work History", code="work_history")
     work_history.save()
@@ -185,7 +185,5 @@ class Migration(migrations.Migration):
                 ),
             ],
         ),
+        migrations.RunPython(insert_initial_catalogs_data),
     ]
-
-    def ready(self):
-        post_migrate.connect(insert_initial_catalogs_data, sender=self)
