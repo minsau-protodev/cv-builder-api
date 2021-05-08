@@ -12,7 +12,7 @@ class Curriculum(models.Model):
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
     description = models.TextField()
-    owner = models.ForeignKey(User)
+    owner = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
 
 
 class SectionType(models.Model):
@@ -31,8 +31,12 @@ class Section(models.Model):
     title = models.CharField(max_length=128)
     order = models.IntegerField()
     icon_url = models.URLField()
-    section_type = models.ForeignKey(SectionType)
-    curriculum = models.ForeignKey(Curriculum)
+    section_type = models.ForeignKey(
+        SectionType, null=True, blank=True, on_delete=models.SET_NULL
+    )
+    curriculum = models.ForeignKey(
+        Curriculum, null=True, blank=True, on_delete=models.SET_NULL
+    )
 
 
 class ElementType(models.Model):
@@ -55,4 +59,9 @@ class Element(models.Model):
     level = models.IntegerField(blank=True, null=True)
     date_display_start = models.DateTimeField(blank=True, null=True)
     date_display_end = models.DateTimeField(blank=True, null=True)
-    element_type = models.ForeignKey(ElementType)
+    element_type = models.ForeignKey(
+        ElementType, null=True, blank=True, on_delete=models.SET_NULL
+    )
+    section = models.ForeignKey(
+        Section, null=True, blank=True, on_delete=models.SET_NULL
+    )
