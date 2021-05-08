@@ -1,17 +1,20 @@
 [tool.poetry]
-name = "covid-forecast-poetry"
+name = "cv-builder-api"
 version = "0.1.0"
 description = ""
-authors = ["edkrueger <edkrueger@gmail.com>"]
+authors = ["minsau <minsau@prototipo-devs.com.mx>"]
 
 [tool.poetry.dependencies]
 python = "==3.7.6"
-fbprophet = "==0.6"
-matplotlib = "==3.2.2"
-pandas = "==1.0.5"
-plotly = "==4.8.2"
-pystan = "==2.19.1.1"
-streamlit = "==0.62.1"
+asgiref= "==3.3.4"
+Django= "==3.2.2"
+django-filter= "==2.4.0"
+djangorestframework= "==3.12.4"
+djangorestframework-simplejwt= "==4.6.0"
+PyJWT= "==2.1.0"
+pytz= "==2021.1"
+sqlparse= "==0.4.1"
+typing-extensions= "==3.10.0.0"
 
 [tool.poetry.dev-dependencies]
 black = "*"
