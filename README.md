@@ -17,3 +17,14 @@ Backend API for CV Builder project
   - User: cv-builder
   - Pass: cv-builder
   - DB: builder
+
+## Server - Django
+
+- Install dependencies (with poetry or pip)
+  ```bash
+  pip install -r requirements.txt
+  ```
+- Run migrations
+  ```bash
+  python manage.py migrate
+  ```
